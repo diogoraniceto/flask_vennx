@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 import pandas as pd
-from waitress import serve
 
 app = Flask(__name__)
 
@@ -54,5 +53,4 @@ def process_excel():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    # Usando o waitress para servir a aplicação Flask
-    serve(app, host='0.0.0.0', port=8080)
+    app.run(debug=True)
